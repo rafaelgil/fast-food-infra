@@ -1,14 +1,13 @@
+name: Fast Food Infrastructure Delete
 
-name: Fast Food Infrastructure Deployment
-
-on:
-  push:
-    branches:
-      - main
-#on: workflow_dispatch
+# on:
+#   push:
+#     branches:
+#       - main
+on: workflow_dispatch
 
 env:
-  # verbosity setting for Terraform logs--test d
+  # verbosity setting for Terraform logs--test
   TF_LOG: INFO
   # Credentials for deployment to AWS
   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -16,7 +15,7 @@ env:
 
 jobs:
   iam_deployment:
-    name: "Deploy Fast Food"
+    name: "Delete Fast Food"
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -47,8 +46,5 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Plan
-        run: terraform plan -input=false
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve -input=false
