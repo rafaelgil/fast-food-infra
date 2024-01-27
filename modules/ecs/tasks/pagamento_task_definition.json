@@ -1,0 +1,41 @@
+[
+  {
+    "name": "pagamento",
+    "image": "${image}",
+    "portMappings": [
+      {
+        "containerPort": 8090,
+        "hostPort": 8090
+      }
+    ],
+    "memory": 300,
+    "networkMode": "awsvpc",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "pagamento_web"
+      }
+    },
+    "environment": [
+      {
+        "name": "MONGO_URL",
+        "value": "${database_pagamento_endpoint}"
+      },
+      {
+        "name": "MONGO_USER",
+        "value": "${database_pagamento_username}"
+      },
+      {
+        "name": "MONGO_PASSWORD",
+        "value": "${database_pagamento_password}"
+      },
+      {
+        "name": "URL_SQS",
+        "value": "${sqs_notificacao_pagamento_url}"
+      }
+    ]
+  }
+]
+
