@@ -73,6 +73,5 @@ module "ecs" {
     module.rds.db_access_sg_id
   ]
   database_endpoint = module.rds.rds_address
-  sqs_notificacao_pagamento_url = module.sqs.sqs_notificacao_pagamento_url
   database_pagamento_endpoint = module.documentdb.documentdb_address
 }

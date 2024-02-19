@@ -37,7 +37,6 @@ data "template_file" "web_task" {
     database_url      = "jdbc:postgresql://${var.database_endpoint}:5432/${var.database_name}?encoding=utf8&pool=40"
     database_username = var.database_username
     database_password = var.database_password
-    url_sqs           = var.sqs_notificacao_pagamento_url
     log_group         = aws_cloudwatch_log_group.fast_food_app.name
   }
 }
@@ -355,10 +354,9 @@ data "template_file" "pagamento_task" {
 
   vars = {
     image                         = "${aws_ecr_repository.fast_food_app_pagamento.repository_url}:latest"
-    database_pagamento_endpoint   = var.database_pagamento_endpoint
+    database_pagamento_url        = "mongodb://${var.database_pagamento_username}:${var.database_pagamento_password}@${var.database_pagamento_endpoint}:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
     database_pagamento_username   = var.database_pagamento_username
     database_pagamento_password   = var.database_pagamento_password
-    sqs_notificacao_pagamento_url = var.sqs_notificacao_pagamento_url
     log_group                     = aws_cloudwatch_log_group.fast_food_app_pagamento.name
   }
 }

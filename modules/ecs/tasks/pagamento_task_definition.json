@@ -21,7 +21,7 @@
     "environment": [
       {
         "name": "MONGO_URL",
-        "value": "${database_pagamento_endpoint}"
+        "value": "${database_pagamento_url}"
       },
       {
         "name": "MONGO_USER",
@@ -30,10 +30,6 @@
       {
         "name": "MONGO_PASSWORD",
         "value": "${database_pagamento_password}"
-      },
-      {
-        "name": "URL_SQS",
-        "value": "${sqs_notificacao_pagamento_url}"
       }
     ]
   }

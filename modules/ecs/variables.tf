@@ -65,7 +65,3 @@ variable "database_pagamento_password" {
   description = "The database password"
   default = "fast_food_pagamento_root"
 }
-
-variable "sqs_notificacao_pagamento_url" {
-  description = "SQS URL"
-}
