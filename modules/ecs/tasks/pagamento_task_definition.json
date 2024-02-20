@@ -17,21 +17,7 @@
         "awslogs-region": "us-east-1",
         "awslogs-stream-prefix": "pagamento_web"
       }
-    },
-    "environment": [
-      {
-        "name": "MONGO_URL",
-        "value": "${database_pagamento_url}"
-      },
-      {
-        "name": "MONGO_USER",
-        "value": "${database_pagamento_username}"
-      },
-      {
-        "name": "MONGO_PASSWORD",
-        "value": "${database_pagamento_password}"
-      }
-    ]
+    }
   }
 ]
 

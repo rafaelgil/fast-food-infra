@@ -1,6 +1,7 @@
 
 resource "aws_sqs_queue" "notificacao-pagamento" {
   name = var.sqs_name
+  sqs_managed_sse_enabled = false
 }
 
 resource "aws_sqs_queue_policy" "notificacao-pagamento-policy" {
@@ -25,6 +26,7 @@ POLICY
 
 resource "aws_sqs_queue" "notificacao-pedido" {
   name = var.sqs_pedido_name
+  sqs_managed_sse_enabled = false
 }
 
 resource "aws_sqs_queue_policy" "notificacao-pedido-policy" {
@@ -32,23 +34,24 @@ resource "aws_sqs_queue_policy" "notificacao-pedido-policy" {
 
   policy = <<POLICY
 {
-  "Version": "2012-10-17",
-  "Id": "sqspolicy",
-  "Statement": [
-    {
-      "Sid": "First",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.notificacao-pagamento.arn}"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Id": "sqspolicy",
+    "Statement": [
+        {
+        "Sid": "First",
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "sqs:*",
+        "Resource": "${aws_sqs_queue.notificacao-pedido.arn}"
+        }
+    ]
 }
 POLICY
 }
 
 resource "aws_sqs_queue" "notificacao_status" {
   name = var.sqs_notificacao_status
+  sqs_managed_sse_enabled = false
 }
 
 resource "aws_sqs_queue_policy" "notificacao_status-policy" {

@@ -1,11 +1,11 @@
 [
   {
-    "name": "web",
+    "name": "producao",
     "image": "${image}",
     "portMappings": [
       {
-        "containerPort": 8080,
-        "hostPort": 8080
+        "containerPort": 8082,
+        "hostPort": 8082
       }
     ],
     "memory": 300,
@@ -15,7 +15,7 @@
       "options": {
         "awslogs-group": "${log_group}",
         "awslogs-region": "us-east-1",
-        "awslogs-stream-prefix": "web"
+        "awslogs-stream-prefix": "producao_web"
       }
     }
   }

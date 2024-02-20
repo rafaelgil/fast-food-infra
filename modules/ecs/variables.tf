@@ -32,6 +32,11 @@ variable "repository_name_pagamento" {
   default = "fast-food-app-pagamento"
 }
 
+variable "repository_name_producao" {
+  description = "repository name"
+  default = "fast-food-app-producao"
+}
+
 variable "database_endpoint" {
   description = "The database endpoint"
   default = "fast-food-database.csxw4cuf3uvj.us-east-1.rds.amazonaws.com"
