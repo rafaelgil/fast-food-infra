@@ -32,6 +32,21 @@ variable "repository_name_pagamento" {
   default = "fast-food-app-pagamento"
 }
 
+variable "repository_name_producao" {
+  description = "repository name"
+  default = "fast-food-app-producao"
+}
+
+variable "repository_name_cliente" {
+  description = "repository name"
+  default = "fast-food-app-cliente"
+}
+
+variable "repository_name_produto" {
+  description = "repository name"
+  default = "fast-food-app-produto"
+}
+
 variable "database_endpoint" {
   description = "The database endpoint"
   default = "fast-food-database.csxw4cuf3uvj.us-east-1.rds.amazonaws.com"
@@ -54,6 +69,7 @@ variable "database_name" {
 
 variable "database_pagamento_endpoint" {
   description = "The database pagamento url"
+  default = "food"
 }
 
 variable "database_pagamento_username" {
@@ -64,8 +80,4 @@ variable "database_pagamento_username" {
 variable "database_pagamento_password" {
   description = "The database password"
   default = "fast_food_pagamento_root"
-}
-
-variable "sqs_notificacao_pagamento_url" {
-  description = "SQS URL"
 }
