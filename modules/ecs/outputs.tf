@@ -1,4 +1,4 @@
-output "repository_url" {
+/*output "repository_url" {
   value = aws_ecr_repository.fast_food_app.repository_url
 }
 
@@ -21,3 +21,4 @@ output "repository_url_pagamento" {
 output "service_name_pagamento" {
   value = aws_ecs_service.pagamento.name
 }
+*/

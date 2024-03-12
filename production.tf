@@ -36,7 +36,7 @@ module "networking" {
   region               = var.region
   availability_zones   = local.production_availability_zones
 }
-
+/*
 module "rds" {
   source            = "./modules/rds"
   environment       = local.environment
@@ -45,7 +45,7 @@ module "rds" {
   vpc_id            = module.networking.vpc_id
   instance_class    = "db.t3.micro"
 }
-
+*/
 module "rds-produto" {
   source            = "./modules/rds-produto"
   environment       = local.environment
@@ -63,7 +63,7 @@ module "rds-cliente" {
   vpc_id            = module.networking.vpc_id
   instance_class    = "db.t3.micro"
 }
-
+/*
 module "documentdb" {
   source               = "./modules/documendb"
   environment          = local.environment
@@ -73,7 +73,7 @@ module "documentdb" {
   vpc_security_group_ids = [
     module.networking.security_groups_ids
   ]
-}
+}*/
 
 module "ecs" {
   source             = "./modules/ecs"
@@ -84,12 +84,12 @@ module "ecs" {
   public_subnet_ids  = module.networking.public_subnets_id
   security_groups_ids = [
     module.networking.security_groups_ids,
-    module.rds.db_access_sg_id,
+    //module.rds.db_access_sg_id,
     module.rds-produto.db_access_sg_id,
     module.rds-cliente.db_access_sg_id
   ]
 }
-
+/*
 module "sqs" {
   source            = "./modules/sqs"
-}
+}*/
