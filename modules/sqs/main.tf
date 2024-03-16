@@ -75,7 +75,7 @@ POLICY
 }
 
 resource "aws_sqs_queue" "notificacao_cliente_inativo" {
-  name = var.sqs_notificacao_status
+  name = var.sqs_notificacao_cliente_inativo
   sqs_managed_sse_enabled = false
 }
 
