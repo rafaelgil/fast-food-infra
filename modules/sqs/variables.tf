@@ -12,3 +12,8 @@ variable "sqs_notificacao_status" {
   description = "Name of the sqs queue to be created"
   default     = "notificacao-status"
 }
+
+variable "sqs_notificacao_cliente_inativo" {
+  description = "Name of the sqs queue to be created"
+  default     = "notificacao-cliente-inativo"
+}
